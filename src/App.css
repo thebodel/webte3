@@ -1,0 +1,171 @@
+:root {
+  color: #111827;
+  background: #f5f5f7;
+  font: 16px/1.5 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+button, input, textarea, select { font: inherit; }
+button {
+  border: 0;
+  border-radius: 10px;
+  padding: .62rem .8rem;
+  background: #fff;
+  color: #111827;
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  cursor: pointer;
+  box-shadow: 0 1px 2px #0001;
+}
+button:active { transform: scale(.97); }
+button:disabled { opacity: .55; cursor: wait; }
+input, textarea, select {
+  width: 100%;
+  border: 1px solid #d8d8de;
+  border-radius: 10px;
+  padding: .65rem .75rem;
+  background: #fff;
+  color: #111827;
+}
+textarea { min-height: 5rem; resize: vertical; }
+
+main {
+  width: min(1180px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 1rem 0 2rem;
+}
+.topbar, footer {
+  position: sticky;
+  z-index: 5;
+  backdrop-filter: blur(18px) saturate(180%);
+  background: #f5f5f7cc;
+}
+.topbar {
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+h1, h2, h3, p { margin: 0; }
+h1 { font-size: clamp(1.8rem, 4vw, 3rem); line-height: 1.05; }
+h2 { font-size: 1.25rem; }
+h3 { font-size: 1rem; }
+.topbar p, small, footer { color: #6b7280; }
+.student, .actions, .tools, .two { display: flex; gap: .6rem; }
+.student { width: min(390px, 100%); }
+.primary { background: #111827; color: #fff; }
+.actions { margin: 1rem 0; flex-wrap: wrap; }
+.message, .empty {
+  margin: .75rem 0;
+  padding: .8rem 1rem;
+  border-radius: 12px;
+  background: #eef8f1;
+  color: #166534;
+}
+.error { background: #fef2f2; color: #991b1b; }
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(320px, .8fr);
+  gap: 1rem;
+  align-items: start;
+}
+.calendar, .list {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: 0 12px 32px #0000000d;
+}
+.fc { font-size: .92rem; }
+.fc .fc-button {
+  background: #111827;
+  border: 0;
+  border-radius: 9px;
+}
+.fc-event { border: 0; padding: 2px 4px; cursor: pointer; }
+.done-event { opacity: .65; text-decoration: line-through; }
+.open-event { background: #2563eb; }
+
+.tools {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: .8rem;
+}
+.tools label {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+}
+.tools input { grid-column: 1 / -1; }
+.todo {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  gap: .7rem;
+  align-items: start;
+  padding: .85rem 0;
+  border-top: 1px solid #edf0f4;
+}
+.todo:first-of-type { border-top: 0; }
+.todo p { color: #4b5563; font-size: .9rem; }
+.todo small { display: block; margin-top: .2rem; overflow-wrap: anywhere; }
+.todo.finished h3 { text-decoration: line-through; color: #6b7280; }
+.todo.late { border-left: 3px solid #dc2626; padding-left: .6rem; }
+.state { background: #eef2ff; color: #1d4ed8; }
+
+.scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: end center;
+  padding: 1rem;
+  background: #11182755;
+}
+.sheet {
+  width: min(560px, 100%);
+  display: grid;
+  gap: .8rem;
+  padding: 1rem;
+  border-radius: 18px;
+  background: #fffffff2;
+  backdrop-filter: blur(24px) saturate(180%);
+  box-shadow: 0 24px 70px #0004;
+}
+.sheet header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.sheet label { display: grid; gap: .3rem; font-weight: 650; }
+.check {
+  display: flex !important;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+}
+.check input { width: auto; }
+footer {
+  bottom: 0;
+  margin-top: 1rem;
+  padding: .75rem 0;
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+}
+
+@media (max-width: 850px) {
+  main { width: min(100% - 1rem, 680px); }
+  .topbar, .student, .grid, .two { display: grid; grid-template-columns: 1fr; }
+  .grid { gap: .75rem; }
+  .calendar, .list { padding: .75rem; border-radius: 12px; }
+  .fc .fc-toolbar { display: grid; gap: .5rem; justify-content: stretch; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; scroll-behavior: auto !important; }
+  button:active { transform: none; }
+}
