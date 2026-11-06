@@ -7,7 +7,7 @@
 - FullCalendar
 - Axios
 - Lucide React
-Pouzil LLM pri navrhu struktury a upravach kodu, vysledok som priebezne kontroloval a upravoval rucne.
+- Pouzil LLM pri navrhu struktury a upravach kodu, vysledok som priebezne kontroloval a upravoval rucne.
 
 
 
